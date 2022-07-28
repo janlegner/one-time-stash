@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A simple stash allowing one time share of a text secret.">
+    <meta name="author" content="glitchful.dev">
+
+    <meta property="og:title" content="A Basic HTML5 Template" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/" />
+    <meta property="og:description" content="A simple HTML5 Template for new projects." />
+    <meta property="og:image" content="image.png" />
+
+    <link href="/css/theme.css" type="text/css" rel="stylesheet" />
+    <link href="/css/toaster.css" type="text/css" rel="stylesheet" />
+
+    <script src="/js/ui.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/toaster.js"></script>
+
+    <title>A One Time Stash</title>
+  </head>
+  <body>
+    <div>
+      <p class="large hidden-step" data-step="stash-1">Step 1: Insert text that you want to stash</p>
+      <textarea class="hidden-step" id="secret-input" placeholder="Paste here..." oninput="ui.onSecretInput(this)" onpaste="ui.onSecretInput(this)" onkeydown="ui.onSecretInput(this)" data-step="stash-1"></textarea>
+      <p class="large hidden-step" data-step="stash-2">Step 2: Click the button to create a one-time stash</p>
+      <div class="button hidden-step" id="create-stash-button" onclick="ui.createStash()" data-step="stash-2">Create stash</div>
+      <p class="large hidden-step" data-step="stash-3">Step 3: Share the link to the stash</p>
+      <div class="box hidden-step" id="stash-link" data-step="stash-3"></div>
+      <div class="button hidden-step" onclick="ui.copyToClipboard('#stash-link')" data-step="stash-3">Copy to clipboard</div>
+
+      <p class="large hidden-step" data-step="claim-1">Click the button to claim the contents of the stash</p>
+      <div class="button hidden-step" id="claim-stash-button" onclick="ui.claimStash()" data-step="claim-1">Claim the stash</div>
+      <p class="large hidden-step" data-step="claim-2">Contents of the stash:</p>
+      <div class="box hidden-step" id="claimed-stash" data-step="claim-2"></div>
+      <div class="button hidden-step" onclick="ui.copyToClipboard('#claimed-stash')" data-step="claim-2">Copy to clipboard</div>
+    </div>
+    <div class="toaster"></div>
+    <script>ui.start()</script>
+  </body>
+</html>

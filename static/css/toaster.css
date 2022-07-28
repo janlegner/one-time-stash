@@ -1,0 +1,41 @@
+.toaster {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+}
+.toaster > div {
+  display: inline-block;
+  font-weight: bold;
+  padding: 10px;
+  margin: 0px 10px 10px 0px;
+  position: relative;
+}
+.toaster > div.red {
+  color: white;
+  background-color: #cc0000;
+}
+.toaster > div.green {
+  color: black;
+  background-color: #00cc00;
+}
+.toaster > div {
+  animation-name: toaster-new;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+.toaster > div.expired {
+  animation-name: toaster-expired;
+}
+
+@keyframes toaster-new {
+  0% { top: 80px; opacity: 0; }
+  100% { top: 0px; opacity: 1; }
+}
+@keyframes toaster-expired {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}

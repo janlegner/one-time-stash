@@ -59,7 +59,6 @@ fn main() {
                     Ok(now) => {
                         let mut stashes = thread_context.stashes.write().expect("RwLock poisoned");
                         stashes.retain(|_, stash| now.as_secs() < stash.expires_at);
-                        println!("Currently there is {} claimable stashes", stashes.len());
                     }
                     Err(_) => panic!("SystemTime before UNIX EPOCH!"),
                 }

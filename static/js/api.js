@@ -1,4 +1,4 @@
-const DEFAULT_STASH_TTL = 3600 // seconds
+const DEFAULT_STASH_TTL = 1.5 * 3600 // seconds
 
 const callCreateStash = (secret) => {
   const payload = new URLSearchParams()
